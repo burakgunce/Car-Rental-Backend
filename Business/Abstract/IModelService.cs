@@ -12,5 +12,8 @@ namespace Business.Abstract
     {
         IDataResult<List<Model>> GetAll();
         IDataResult<Model> GetById(int modelId);
+        IResult Add(Model model);
+        IResult Update(Model model);
+        IResult Delete(Model model);
     }
 }
