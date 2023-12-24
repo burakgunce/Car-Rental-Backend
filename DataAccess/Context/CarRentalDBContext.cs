@@ -1,4 +1,5 @@
-﻿using DataAccess.Configurations;
+﻿using Core.Entities.Concrete;
+using DataAccess.Configurations;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,6 +19,8 @@ namespace DataAccess.Context
         public DbSet<Model> Models { get; set; }
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
