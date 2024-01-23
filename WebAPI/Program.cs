@@ -48,6 +48,11 @@ namespace WebAPI
                 new CoreModule()
             });
 
+            //with origins = domain, annyheader = get post
+            builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+            {
+                builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+            }));
 
             // Add services to the container.
             builder.Services.AddRazorPages();
@@ -61,6 +66,8 @@ namespace WebAPI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors("corsapp");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
