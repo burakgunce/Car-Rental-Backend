@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
@@ -24,12 +25,14 @@ namespace Business.Concrete
 
 
         [ValidationAspect(typeof(UserValidator))]
+        [TransactionScopeAspect]
         public IResult Add(User user)
         {
             _userDal.Add(user);
             return new SuccessResult();
         }
 
+        [TransactionScopeAspect]
         public IResult Delete(User user)
         {
             _userDal.Delete(user);
@@ -48,6 +51,7 @@ namespace Business.Concrete
 
 
         [ValidationAspect(typeof(UserValidator))]
+        [TransactionScopeAspect]
         public IResult Update(User user)
         {
             _userDal.Update(user);

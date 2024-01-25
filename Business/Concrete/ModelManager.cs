@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -22,12 +23,14 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ModelValidator))]
+        [TransactionScopeAspect]
         public IResult Add(Model model)
         {
             _modelDal.Add(model);
             return new SuccessResult(Messages.ModelCreated);
         }
 
+        [TransactionScopeAspect]
         public IResult Delete(Model model)
         {
             _modelDal.Delete(model);
@@ -45,6 +48,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ModelValidator))]
+        [TransactionScopeAspect]
         public IResult Update(Model model)
         {
             _modelDal.Update(model);
