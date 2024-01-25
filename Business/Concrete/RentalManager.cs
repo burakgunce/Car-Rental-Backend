@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
@@ -26,6 +27,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(RentalValidator))]
         [TransactionScopeAspect]
+        [CacheRemoveAspect("GetAll")]
         public IResult Add(Rental rental)
         {
             var result = BusinessRules.Run(CheckIfCarHasBeenReturned(rental.CarId));
@@ -47,6 +49,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RentalDeleted);
         }
 
+        [CacheAspect]
         public IDataResult<List<Rental>> GetAll()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());
