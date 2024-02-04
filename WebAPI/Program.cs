@@ -67,6 +67,8 @@ namespace WebAPI
                 app.UseHsts();
             }
 
+            app.ConfigureCustomExceptionMiddleware(); // for other middleware extensions
+
             app.UseCors("corsapp");
 
             app.UseHttpsRedirection();
