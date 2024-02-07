@@ -23,19 +23,8 @@ namespace DataAccess.Context
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Server=DESKTOP-7G5LBG3\\SQLSERVERBG;database=MusicMarketDb;integrated security=true;MultipleActiveResultSets=true");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfiguration(new BrandConfiguration())
-                .ApplyConfiguration(new CarConfiguration())
-                .ApplyConfiguration(new ColorConfiguration())
-                .ApplyConfiguration(new CustomerConfiguration())
-                .ApplyConfiguration(new ModelConfiguration())
-                .ApplyConfiguration(new RentalConfiguration())
-                .ApplyConfiguration(new UserConfiguration());
-            base.OnModelCreating(modelBuilder);
-        }
     }
 }
