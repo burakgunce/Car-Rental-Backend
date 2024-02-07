@@ -31,6 +31,9 @@ namespace Business.Constants
         public static string RentalCreated = "Rental created successfully.";
         public static string RentalDeleted = "Rental deleted successfully.";
         public static string RentalUpdated = "Rental updated successfully.";
-
+        public static string CarImageLimitExceeded = "You can not upload image over 15 piece.";
+        public static string CarImageCreated = "Car Image added.";
+        internal static string CarImageDeleted;
+        internal static string CarImageUpdated;
     }
 }
