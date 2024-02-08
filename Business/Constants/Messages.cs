@@ -33,7 +33,7 @@ namespace Business.Constants
         public static string RentalUpdated = "Rental updated successfully.";
         public static string CarImageLimitExceeded = "You can not upload image over 15 piece.";
         public static string CarImageCreated = "Car Image added.";
-        internal static string CarImageDeleted;
-        internal static string CarImageUpdated;
+        public static string CarImageDeleted = "Image deleted.";
+        public static string CarImageUpdated = "Image updated.";
     }
 }
