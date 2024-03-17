@@ -26,6 +26,8 @@ And this project focuses on car rental in a functional and safe way.
 
 - **ASP.NET Core Web API**: ASP.NET Core Web API is used to develop RESTful APIs. It provides a lightweight, high-performance framework for building web services that can be consumed by various clients.
 
+- **Entity Framework Core**: Entity Framework Core is used as the ORM (Object-Relational Mapping) framework in the project. It simplifies data access by allowing developers to work with databases using .NET objects, and provides features such as LINQ queries, change tracking, and migrations.
+
 - **Autofac**: Autofac is used as the dependency injection container in the project. It provides a powerful and flexible way to manage dependencies and perform dependency injection in .NET applications.
 
 - **FluentValidation**: FluentValidation is used for input validation in the project. It provides a fluent interface for defining validation rules and helps in ensuring the validity of input data before processing it.
